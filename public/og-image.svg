@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f3f0e8"/>
+  <path d="M0 75H1200M0 554H1200" stroke="#c8c8be"/>
+  <g fill="none" stroke="#cc6045" stroke-width="3"><path d="M1086 58v62m-31-31h62m-53-22 44 44m0-44-44 44"/></g><circle cx="1086" cy="89" r="7" fill="#cc6045"/>
+  <text x="82" y="112" fill="#cc6045" font-family="Arial,sans-serif" font-size="19" letter-spacing="3">MINGZHE SUN / PERSONAL INDEX</text>
+  <text x="73" y="341" fill="#20231f" font-family="Georgia,serif" font-size="145">A life in the</text>
+  <text x="73" y="485" fill="#cc6045" font-family="Georgia,serif" font-size="155" font-style="italic">making.</text>
+  <text x="82" y="594" fill="#565b55" font-family="Arial,sans-serif" font-size="21">BUILDER · STUDENT · COMMUNITY ORGANIZER</text>
+</svg>

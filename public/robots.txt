@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mzsun.me/sitemap.xml
