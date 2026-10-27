@@ -1,4 +1,7 @@
 import "./styles.css";
+import { inject } from "@vercel/analytics";
+
+inject();
 
 const typedWord = document.querySelector("#hero-typed-word");
 const typeWords = [
