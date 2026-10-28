@@ -20,7 +20,11 @@ Build with `npm run build`. Vercel deploys `dist/` from the `main` branch using 
 - Title word rotation, navigation, and scroll progress: `src/main.js`
 - Portrait and icons: `public/`
 
-The first edition uses facts previously published on the former website and the contact details supplied for this rebuild. Project copy can be expanded as new material becomes available. The site is static: no admin area, API, booking system, message form, or database is required.
+The site follows a product-and-community narrative: Extra! is the lead venture, followed by the World Cup project, a personal introduction, the AI Innovation Association and campus roles, then short notes on other explorations. The portrait sits in the personal introduction; the hero uses an original SVG route illustration.
+
+Facts come from the former public site and information supplied by Mingzhe. On 2026-10-28 he confirmed that Extra! has become a company (叙象科技), that he is Co-founder, CSO and CPO, and that its seed funding is in the millions of CNY with a valuation exceeding CNY 10 million. The page uses approximate figures and the Extra! brand because the company does not yet have an official English name. The motto retains his supplied wording.
+
+The navigation uses a translucent CSS glass treatment, active-section indication, and a keyboard-accessible mobile menu. Functional labels are at least 14px; smaller type appears only inside decorative, aria-hidden artwork. Reduced-motion preferences disable the rotating headline. The site is static: no admin area, API, booking system, message form, or database is required.
 
 ## Visitor analytics
 

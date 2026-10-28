@@ -62,6 +62,13 @@ if (typedWord) {
 
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".primary-nav");
+const header = document.querySelector(".site-header");
+
+function closeMenu() {
+  menuButton?.setAttribute("aria-expanded", "false");
+  menuButton?.setAttribute("aria-label", "Open navigation");
+  nav?.classList.remove("is-open");
+}
 
 menuButton?.addEventListener("click", () => {
   const expanded = menuButton.getAttribute("aria-expanded") === "true";
@@ -74,11 +81,23 @@ menuButton?.addEventListener("click", () => {
 });
 
 nav?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuButton?.setAttribute("aria-expanded", "false");
-    menuButton?.setAttribute("aria-label", "Open navigation");
-    nav.classList.remove("is-open");
-  });
+  link.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && nav?.classList.contains("is-open")) {
+    closeMenu();
+    menuButton?.focus();
+  }
+});
+document.addEventListener("click", (event) => {
+  if (!header?.contains(event.target)) closeMenu();
+});
+window.matchMedia("(min-width: 801px)").addEventListener("change", closeMenu);
+header?.addEventListener("pointermove", (event) => {
+  if (reducedMotion.matches || event.pointerType !== "mouse") return;
+  const bounds = header.getBoundingClientRect();
+  header.style.setProperty("--glass-x", `${((event.clientX - bounds.left) / bounds.width) * 100}%`);
 });
 
 const progress = document.querySelector(".scroll-progress");
@@ -86,6 +105,18 @@ let ticking = false;
 function updateProgress() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.width = `${scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0}%`;
+  header?.classList.toggle("is-scrolled", window.scrollY > 24);
+  let currentSection = "";
+  for (const section of document.querySelectorAll("main section[id]")) {
+    if (section.getBoundingClientRect().top <= 180) currentSection = `#${section.id}`;
+  }
+  nav?.querySelectorAll("a").forEach((link) => {
+    if (link.getAttribute("href") === currentSection) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
   ticking = false;
 }
 window.addEventListener(
