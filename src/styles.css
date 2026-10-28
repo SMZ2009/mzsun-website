@@ -97,20 +97,20 @@ p { text-wrap: pretty; }
 .primary-nav .nav-contact:hover, .primary-nav .nav-contact[aria-current="location"] { background: #4b5344; color: #fff; }
 .menu-toggle { display: none; }
 
-/* The introduction is a personal statement; the illustration gives it room. */
+/* A single editorial opening, with atmosphere carried by the background. */
 .hero {
-  min-height: min(980px, max(790px, 94svh));
+  min-height: min(880px, max(700px, 88svh));
   display: grid;
-  grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 1fr auto;
   align-items: center;
   gap: 20px 0;
   padding-top: 145px;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(ellipse at 81% 48%, #e7dfcd38, transparent 46%);
+  background: radial-gradient(ellipse at 85% 40%, #e8ddce30, transparent 65%);
 }
-.hero-copy { position: relative; z-index: 2; min-width: 0; padding-bottom: 54px; }
+.hero-copy { position: relative; z-index: 2; min-width: 0; width: min(100%, 1040px); margin-inline: auto; padding-bottom: 54px; }
 .eyebrow, .section-index, .project-kicker { font-size: 14px; line-height: 1.5; letter-spacing: .085em; font-weight: 500; }
 .hero-eyebrow { display: flex; align-items: center; gap: 13px; margin: 0 0 40px; }
 .eyebrow-separator { color: #93968a; }
@@ -128,15 +128,6 @@ p { text-wrap: pretty; }
 .button:hover { background: #47513e; transform: translateY(-2px); }
 .quiet-link { display: inline-flex; align-items: center; gap: 16px; min-height: 48px; font-size: 16px; border-bottom: 1px solid #a4a79a; }
 .quiet-link:hover { color: var(--rust); }
-.route-art { position: relative; min-width: 0; width: 100%; height: 530px; transform: translateY(-5px); }
-.route-wash { position: absolute; inset: 8% 0 5%; border-radius: 48% 52% 58% 42%; background: radial-gradient(ellipse at 40% 60%, #e3d6bb80, #eae4d13b 57%, transparent 72%); transform: rotate(-15deg); }
-.birth-year { position: absolute; top: 13%; left: 14%; font-family: var(--serif); font-size: clamp(180px, 19vw, 310px); letter-spacing: -.09em; color: #d7cfbc; line-height: 1; }
-.route-drawing { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.route-line, .route-shadow { stroke-linecap: round; stroke-linejoin: round; }
-.route-line { stroke: var(--rust); stroke-width: 4; }
-.route-shadow { stroke: #d3bda1; stroke-width: 13; opacity: .2; transform: translate(3px, 8px); }
-.route-note { position: absolute; bottom: 6%; right: 3%; font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--rust); transform: rotate(-5deg); }
-.birth-caption { position: absolute; top: 10%; left: 17%; font-size: 14px; color: var(--muted); letter-spacing: .12em; }
 .hero-foot { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 24px 0; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.7; }
 .foot-label { color: var(--muted); font-size: 14px; letter-spacing: .08em; margin-right: 22px; }
 .foot-divider { color: #999d8e; padding: 0 8px; }
@@ -255,16 +246,14 @@ h2 em { font-weight: 400; color: var(--rust); }
 
 @media (min-width: 1900px) {
   :root { --page-gutter: max(80px, calc((100vw - 1480px) / 2)); }
-  .hero { min-height: 1000px; }
+  .hero { min-height: 900px; }
   .hero h1 { font-size: 158px; }
-  .route-art { height: 590px; }
   .hero-copy { padding-bottom: 65px; }
 }
 @media (max-width: 1100px) {
-  .hero { min-height: 800px; }
+  .hero { min-height: 760px; }
   .hero h1 { font-size: 94px; }
   .hero-type-line { font-size: .9em; }
-  .route-art { height: 420px; }
   .hero-eyebrow { font-size: 14px; }
   .hero-lead { font-size: 21px; }
   .hero-actions { gap: 20px; }
@@ -293,14 +282,10 @@ h2 em { font-weight: 400; color: var(--rust); }
   .primary-nav a { padding: 15px 18px; font-size: 17px; }
   .primary-nav .nav-contact { margin: 6px 0 0; justify-content: space-between; padding: 15px 18px; }
   .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 150px; }
-  .hero-copy { padding-bottom: 0; }
+  .hero-copy { padding-bottom: 50px; }
   .hero h1 { font-size: clamp(76px, 13vw, 104px); }
   .hero-type-line { font-size: .92em; }
   .hero-lead { max-width: 540px; }
-  .route-art { height: 280px; width: 310px; justify-self: end; margin-top: -25px; margin-bottom: 10px; }
-  .birth-year { font-size: 185px; top: 5%; left: 18%; }
-  .birth-caption { left: 24%; top: 4%; font-size: 11px; }
-  .route-note { font-size: 23px; bottom: 0; right: 0; }
   .hero-foot { gap: 15px; }
   .hero-foot > span { max-width: 370px; }
   .foot-label { display: block; }
@@ -359,9 +344,6 @@ h2 em { font-weight: 400; color: var(--rust); }
   .hero-actions { gap: 14px 20px; margin-top: 27px; flex-wrap: wrap; }
   .button { font-size: 14px; padding: 14px 18px; gap: 18px; min-height: 48px; }
   .quiet-link { font-size: 14px; gap: 7px; min-height: 44px; }
-  .route-art { height: 230px; width: 270px; margin: 0 0 8px; }
-  .birth-year { font-size: 160px; }
-  .route-note { font-size: 23px; right: 8px; }
   .hero-foot { padding-block: 20px; align-items: end; font-size: 14px; }
   .hero-foot > a { font-size: 0; gap: 0; }
   .hero-foot > a > span { font-size: 22px; }
