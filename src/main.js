@@ -1,4 +1,5 @@
 import "./styles.css";
+import "./extra-gallery.js";
 import { inject } from "@vercel/analytics";
 
 inject();
