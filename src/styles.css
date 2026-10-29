@@ -230,7 +230,8 @@ h2 em { font-weight: 400; color: var(--rust); }
 .exploration-arrow { font-size: 24px; color: var(--rust); }
 .exploration-list > a:hover h3 { color: var(--rust); }
 
-.contact { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 90px; background: #e6e5dc; }
+.contact { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 90px; background: #e6e5dc; }
+.contact > div:first-child { margin-top: 70px; }
 .contact h2 { margin: 27px 0; font-size: clamp(64px, 6.8vw, 100px); }
 .contact > div > p { font-size: 18px; line-height: 1.7; color: #61665a; margin: 0; }
 .contact-links { padding-bottom: 10px; }
@@ -239,6 +240,20 @@ h2 em { font-weight: 400; color: var(--rust); }
 .contact-email strong { font-family: var(--serif); font-size: clamp(35px, 3.8vw, 58px); font-weight: 400; letter-spacing: -.035em; white-space: nowrap; }
 .github-link { min-height: 74px; border-bottom: 1px solid #bdc1b1; }
 .contact-links > a:hover { color: var(--rust); }
+.contact-now { border-bottom: 1px solid #bdc1b1; }
+.contact-now summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 74px; font-size: 16px; cursor: pointer; list-style: none; }
+.contact-now summary::-webkit-details-marker { display: none; }
+.contact-now-arrow { width: 20px; height: 20px; flex: none; transition: transform .25s ease; }
+.contact-now[open] .contact-now-arrow { transform: rotate(180deg); }
+.contact-now summary:hover, .contact-now[open] summary { color: var(--rust); }
+.contact-now-panel { display: grid; gap: 20px; padding: 0 0 26px; }
+.contact-now-item { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 18px; align-items: baseline; }
+.contact-now-item + .contact-now-item { border-top: 1px solid #d1d3c5; padding-top: 20px; }
+.contact-now-label { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.contact-now-item p { margin: 0; font-size: 17px; line-height: 1.5; }
+#now-next-event { display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.contact-now-date, .contact-now-place { color: var(--muted); }
+#now-next-event strong { font-size: 17px; font-weight: 500; }
 .contact-links > p { font-size: 14px !important; padding-top: 20px; }
 .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 30px; min-height: 110px; color: #626758; font-size: 15px; background: #e6e5dc; border-top: 1px solid #d1d3c5; }
 .footer-brand { color: var(--ink); }
@@ -322,6 +337,7 @@ h2 em { font-weight: 400; color: var(--rust); }
   .explorations { grid-template-columns: 1fr; gap: 36px; padding-bottom: 90px; }
   .explorations h2 { font-size: 52px; }
   .contact { grid-template-columns: 1fr; gap: 55px; }
+  .contact > div:first-child { margin-top: 0; }
   .contact h2 { font-size: 82px; }
   .contact-links { max-width: 540px; width: 100%; }
   .contact-email strong { font-size: 52px; }

@@ -1,0 +1,17 @@
+{
+  "updatedAt": "2026-10-29",
+  "location": {
+    "city": "Shenzhen",
+    "country": "China",
+    "note": "My current base for building products and meeting people."
+  },
+  "events": [
+    {
+      "title": "枫客松",
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-01",
+      "place": "Qixia Mountain, Nanjing",
+      "url": ""
+    }
+  ]
+}

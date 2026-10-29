@@ -1,8 +1,46 @@
 import "./styles.css";
 import "./extra-gallery.js";
+import now from "./now-data.json";
 import { inject } from "@vercel/analytics";
 
 inject();
+
+const currentLocation = document.querySelector("#now-location");
+const nextEvent = document.querySelector("#now-next-event");
+if (currentLocation && nextEvent) {
+  currentLocation.textContent = `${now.location.city}, ${now.location.country}`;
+  const today = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  const upcoming = now.events
+    .filter((event) => (event.endDate || event.startDate) >= today)
+    .sort((a, b) => a.startDate.localeCompare(b.startDate))[0];
+
+  if (upcoming) {
+    const formatDay = (value) => new Intl.DateTimeFormat("en", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(`${value}T12:00:00Z`));
+    const dateText = upcoming.endDate && upcoming.endDate !== upcoming.startDate
+      ? `${formatDay(upcoming.startDate)} – ${formatDay(upcoming.endDate)}`
+      : formatDay(upcoming.startDate);
+    const date = document.createElement("span");
+    date.className = "contact-now-date";
+    date.textContent = `${dateText}, ${upcoming.startDate.slice(0, 4)}`;
+    const title = document.createElement("strong");
+    title.textContent = upcoming.title;
+    const place = document.createElement("span");
+    place.className = "contact-now-place";
+    place.textContent = upcoming.place;
+    nextEvent.append(title, date, place);
+  } else {
+    nextEvent.textContent = "No upcoming plans to share yet.";
+  }
+}
 
 const typedWord = document.querySelector("#hero-typed-word");
 const typeWords = [

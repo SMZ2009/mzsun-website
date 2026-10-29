@@ -1,6 +1,6 @@
 # Mingzhe Sun — personal website
 
-An English, single-page portfolio at [mzsun.me](https://mzsun.me). It introduces Mingzhe, presents selected projects and experience, and provides direct contact links.
+An English, single-page portfolio at [mzsun.me](https://mzsun.me). It introduces Mingzhe, presents selected projects and experience, and provides direct contact links. A small expandable note in the contact section shows his current city and next confirmed event.
 
 ## Run locally
 
@@ -17,8 +17,26 @@ Build with `npm run build`. Vercel deploys `dist/` from the `main` branch using 
 
 - Content and links: `index.html`
 - Layout and visual design: `src/styles.css`
+- Current city and upcoming events: `src/now-data.json`
+- Expandable current location and next event: `index.html` and `src/main.js`
 - Title word rotation, navigation, and scroll progress: `src/main.js`
 - Portrait and icons: `public/`
+
+### Update the current location and next event
+
+Edit only `src/now-data.json` for routine updates. Set `location.city` and `location.country` to what you want visitors to see. Add an object to `events` for each confirmed event. The “Where to find me” dropdown shows only the city, country, and the next event’s name, dates, and venue; notes and URLs are not displayed.
+
+```json
+{
+  "title": "Event name",
+  "startDate": "2026-11-15",
+  "endDate": "2026-11-16",
+  "place": "City or venue",
+  "url": "https://example.com/event"
+}
+```
+
+Use `YYYY-MM-DD` dates. `endDate` can be omitted; the event title, start date, and place should be provided. Events sort by start date and disappear after their end date (or start date when there is no end date), using the Asia/Shanghai date. Only the next confirmed event appears in the expandable note. When no upcoming events remain, it shows a short empty state. Preview edits at `http://127.0.0.1:5173/` while `npm run dev` is running.
 
 The site follows a product-and-community narrative: Extra! is the lead venture, followed by the World Cup project, a personal introduction, the AI Innovation Association and campus roles, then short notes on other explorations. The portrait sits in the personal introduction. The hero is a single-column editorial opening with a subtle background tint; it deliberately avoids age-based messaging and a separate illustration panel.
 
